@@ -28,6 +28,9 @@ int main(){
 	GPIO->PIN_CNF[26] = 0;
 
 	int sleep = 0;
+
+	// Init UART
+	uart_init();
 	while(1){
 		if(!(GPIO->IN & (1<<26))){
 			 /* Check if button B is pressed;
@@ -35,14 +38,15 @@ int main(){
 			 for(int i=13;i<16;i++){
 				  GPIO->OUTSET=(1<<i);
 			 }
+			 uart_send('B');
 		 }else if(!(GPIO->IN & (1<<17))){
 			 /* Check if button A is pressed;
 				 * turn off LED matrix if it is. */
 				 for(int i=13;i<16;i++){
 					  GPIO->OUTCLR=(1<<i);
 				 }
+				 uart_send('A');
 		 }
-
 		sleep = 10000;
 		while(--sleep);
 	}

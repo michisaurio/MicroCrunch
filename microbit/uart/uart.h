@@ -16,7 +16,7 @@ typedef struct {
   volatile uint32_t NCTS;
   volatile uint32_t RXDRDY;
   volatile uint32_t WASTE02[4];
-  volatile uint32_t WASTE03
+  volatile uint32_t WASTE03;
   volatile uint32_t TXDRDY;
   volatile uint32_t ERROR;
   volatile uint32_t WASTE04[7];
@@ -40,7 +40,7 @@ typedef struct {
   volatile uint32_t WASTE09;
   volatile uint32_t BAUDRATE;
   volatile uint32_t WASTE10[17];
-  volatile uint32_t CONFIG
+  volatile uint32_t CONFIG;
 } NRF_UART_REG;
 
 void uart_init();
