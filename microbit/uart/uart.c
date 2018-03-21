@@ -5,8 +5,8 @@ void uart_init(){
   GPIO->DIRSET = (1<<24); //Pin 24 to output
   GPIO->DIRCLR = (1<<25); //Pin 25 to input
 
-  UART->PSELTXD &= !(1<<24);  //TXD at pin 24
-  UART->PSELRXD &= !(1<<25);  //RXD at pin 25
+  UART->PSELTXD = 24;//TXD at pin 24
+  UART->PSELRXD = 25;//RXD at pin 25
   UART->PSELCTS = 0xFFFFFFFF; //CTS disabled
   UART->PSELRTS = 0xFFFFFFFF; //RTS disabled
 
@@ -18,19 +18,20 @@ void uart_init(){
 
 void uart_send(char letter){
   UART->STARTTX = 1;
-  // write to TXD
-  UART->TXD = (uint32_t)letter;
+  UART->TXDRDY = 0;
+  UART->TXD = letter;
   while(!(UART->TXDRDY)){
   }
   UART->STOPTX = 1;
 }
 
 char uart_read(){
-  UART->RXDRDY = 0;
-  char letter = UART->RXD;
-  if(!letter)
-    return '\0';
-  else
-    return letter;
-  UART->RXDRDY = 1;
+  if (UART->RXDRDY) {
+          UART->STARTRX = 1;
+          char letter = UART->RXD;
+          UART->STOPRX = 1;
+          return letter;
+      } else {
+          return '\0';
+  }
 }
