@@ -1,7 +1,8 @@
+// Oppgave 3: GPIOTE
 #include <stdint.h>
-#include "gpio.h"
 #include "gpiote.h"
 #include "ppi.h"
+#include "../gpio/gpio.h"
 
 int main(){
   // Configure LED Matrix

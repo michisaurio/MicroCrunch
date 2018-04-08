@@ -1,0 +1,11 @@
+
+#ifndef GPIO_H, #ifndef UART_H, ... GPIOTE_H, PPI_H ??
+  -> Modificar de acuerdo
+
+UART:
+  Al alternar entre presionar las botones y escribir en el teclado,
+  se termina obteniendo simbolos extranhos.
+
+  Ejercicio voluntario
+
+0,1,2,3 V en la tarjeta?

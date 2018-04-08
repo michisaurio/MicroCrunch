@@ -1,9 +1,10 @@
+// Oppgave 4: Two Wire Interface
 #include <stdint.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include "twi.h"
 #include "utility.h"
-#include <stdio.h>
-#include "../gpiote/gpio.h"
+#include "../gpio/gpio.h"
 #include "../uart/uart.h"
 
 int main(){

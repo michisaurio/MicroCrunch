@@ -1,6 +1,6 @@
 
 #include "twi.h"
-#include "../gpiote/gpio.h"
+#include "../gpio/gpio.h"
 
 void twi_init(){
   TWI0->PSELSCL=0;

@@ -1,5 +1,5 @@
-#ifndef PPI_H
-#define PPI_H
+//#ifndef PPI_H
+//#define PPI_H
 #include <stdint.h>
 
 #define PPI ((NRF_PPI_REG*)0x4001F000)
@@ -28,4 +28,4 @@ typedef struct {
 	volatile uint32_t CHG[4];
 } NRF_PPI_REG;
 
-#endif
+//#endif

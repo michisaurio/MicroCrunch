@@ -1,6 +1,7 @@
+#ifndef UART_H
+#define UART_H
 #include <stdint.h>
 
-#ifndef UART_UART_H
 #define UART ((NRF_UART_REG*)0x40002000)
 
 typedef struct {
@@ -18,7 +19,7 @@ typedef struct {
   volatile uint32_t RXDRDY;
   volatile uint32_t WASTE02[4];
   volatile uint32_t TXDRDY;
-  volatile uint32_t WASTE03;  
+  volatile uint32_t WASTE03;
   volatile uint32_t ERROR;
   volatile uint32_t WASTE04[7];
   volatile uint32_t RXTO;
@@ -48,4 +49,4 @@ void uart_init();
 void uart_send(char letter);
 char uart_read();
 
-#endif //UART_UART_H
+#endif
