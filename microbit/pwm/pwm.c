@@ -1,5 +1,5 @@
 #include "pwm.h"
-#include "gpiote.h"
+#include "../gpiote/gpiote.h"
 #include "ppi.h"
 #include "timer.h"
 

@@ -25,7 +25,7 @@ int main(){
   PPI->PPI_CH[2].EEP = (uint32_t)&(GPIOTE->IN[3]);
   PPI->PPI_CH[2].TEP = (uint32_t)&(GPIOTE->OUT[2]);
 
-	int sleep = 0;
+  int sleep = 0;
   while(1){
 		sleep = 10000;
 		while(--sleep);

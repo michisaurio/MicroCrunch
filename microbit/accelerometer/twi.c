@@ -36,3 +36,20 @@ void twi_multi_read(uint8_t slave_address, uint8_t start_register,
       TWI0->RXDREADY = 0;
       //TWI0->STARTRX = 1;
 }
+
+void twi_multi_write(uint8_t slave_address, uint8_t start_register,
+    int registers_to_write, uint8_t * data_buffer){
+    TWI0->ADDRESS=slave_address;
+    TWI0->STARTTX=1;
+
+    TWI0->TXDSENT = 0;
+    TWI0->TXD = start_register;
+    while(!TWI0->TXDSENT);
+
+    for(int i=0; i<registers_to_write; i++){
+        TWI0->TXDSENT = 0;
+        TWI0->TXD = data_buffer[i];
+        while(!TWI0->TXDSENT);
+    }
+    TWI0->STOP = 1;
+}
